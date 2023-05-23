@@ -28,3 +28,17 @@ func randomFormat() string {
 
 	return phrases[rand.Intn(len(phrases))]
 }
+
+func HelloNew(names []string) (map[string]string, error) {
+	messages := make(map[string]string)
+
+	for _, name := range names {
+		msg, err := Hello(name)
+		if err != nil {
+			return nil, err
+		}
+		messages[name] = msg
+	}
+
+	return messages, nil
+}
